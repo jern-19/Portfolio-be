@@ -5,6 +5,7 @@ pool:
   vmImage: ubuntu-latest
 
 steps:
+
 - task: NodeTool@0
   inputs:
     versionSpec: '22.x'
@@ -13,3 +14,17 @@ steps:
     npm install
     npm run build
   displayName: Build
+
+- task: ArchiveFiles@2
+  inputs:
+    rootFolderOrFile: '.'
+    includeRootFolder: false
+    archiveType: zip
+    archiveFile: '$(Build.ArtifactStagingDirectory)/app.zip'
+
+- task: AzureWebApp@1
+  inputs:
+    azureSubscription: 'Service principal (manual)'
+    appType: 'webAppLinux'
+    appName: 'appportfolio'
+    package: '$(Build.ArtifactStagingDirectory)/app.zip'
