@@ -26,5 +26,5 @@ steps:
   inputs:
     azureSubscription: 'Service principal (manual)'
     appType: 'webAppLinux'
-    appName: 'appportfolio'
+    appName: 'portfolio-be'
     package: '$(Build.ArtifactStagingDirectory)/app.zip'
