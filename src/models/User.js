@@ -26,6 +26,18 @@ const userSchema = new mongoose.Schema(
       enum: ["admin", "user"],
       default: "user",
     },
+    likedProjects: [
+      {
+        projectId: {
+          type: String,
+          required: true,
+        },
+        likedAt: {
+          type: Date,
+          default: Date.now,
+        },
+      },
+    ],
   },
   {
     timestamps: true,
