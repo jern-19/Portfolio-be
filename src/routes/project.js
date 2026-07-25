@@ -18,13 +18,16 @@ router.get("/", async (req, res) => {
 
     res.json(projects);
 
-  } catch (error) {
-    console.error(error);
+  } catch(error){
 
-    res.status(500).json({
-      message: "Server error.",
-    });
-  }
+  console.error(error);
+
+  res.status(500).json({
+    message:"Server error",
+    error: error.message
+  });
+
+}
 });
 
 /*
@@ -46,14 +49,16 @@ router.get("/:projectId", async (req, res) => {
 
     res.json(project);
 
-  } catch (error) {
+  } catch(error){
 
-    console.error(error);
+  console.error(error);
 
-    res.status(500).json({
-      message: "Server error.",
-    });
-  }
+  res.status(500).json({
+    message:"Server error",
+    error: error.message
+  });
+
+}
 });
 
 /*
@@ -114,14 +119,16 @@ router.post("/:projectId/like", auth, async (req, res) => {
       likes: project.likes,
     });
 
-  } catch (error) {
+  } catch(error){
 
-    console.error(error);
+  console.error(error);
 
-    res.status(500).json({
-      message: "Server error.",
-    });
-  }
+  res.status(500).json({
+    message:"Server error",
+    error: error.message
+  });
+
+}
 });
 
 /*
@@ -141,14 +148,16 @@ router.get("/:projectId/status", auth, async (req, res) => {
       liked,
     });
 
-  } catch (error) {
+  } catch(error){
 
-    console.error(error);
+  console.error(error);
 
-    res.status(500).json({
-      message: "Server error.",
-    });
-  }
+  res.status(500).json({
+    message:"Server error",
+    error: error.message
+  });
+
+}
 });
 
 module.exports = router;

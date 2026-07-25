@@ -7,11 +7,6 @@ const projectSchema = new mongoose.Schema({
     required: true,
   },
 
-  title: {
-    type: String,
-    required: true,
-  },
-
   likes: {
     type: Number,
     default: 0,
