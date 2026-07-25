@@ -100,7 +100,7 @@ router.post("/login", async (req, res) => {
     // Save token as HttpOnly cookie
     res.cookie("token", token, {
       httpOnly: true,
-      secure: false, // We'll change this to true when deploying over HTTPS
+      secure: true, 
       sameSite: "lax",
       maxAge: 7 * 24 * 60 * 60 * 1000,
     });
